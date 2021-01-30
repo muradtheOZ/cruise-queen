@@ -6,17 +6,16 @@
     list-style-type: none;
 }
 body{
+    background:url("images/ship.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Roboto', sans-serif;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
 }
-#reserveArea{
-    background:url("images/ship.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 nav{
     height: 50px;
@@ -145,6 +144,47 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.payment{
+
+
+
+
+/*second page css*/
+.centerMe{
+    display: none;
+}
+.centerMe{
+    padding: 4%;
+    margin: 2% 20% 5% 20%;
+    background-color: white;
+}
+
+  .half-widthBtn{
+    float: left;
+    width: 35%;
+    margin: 5px 5%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    background-color:  #E33741;
+}
+.double-button{
+    display: inline;
+}
+.center-item h4,h1,h3{
+    margin: 10px;
+    padding: 10px 2px;
+    
+}
+
+input{
+    margin-left: 10px;
+    padding: 5px 20px;
+}
+.user-info h5{
+    margin: 5px 10px;
+}
+#finalSection{
     display: none;
 }

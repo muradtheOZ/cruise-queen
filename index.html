@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <section id="reserveArea">
+
 
     <!--Header and Menu Section-->
     <header class="container">
@@ -29,11 +29,13 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main id="reserveArea" class="main-content container">
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book./p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                and scrambled it to make a type specimen book.</p>
         </div>
 
 
@@ -41,39 +43,41 @@
             <h3>Book Ocean Time</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                <input id="starting" class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                <input id="landing" class="inp-style" type="text" name="" placeholder="New York, United States">
             </div>
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input id="departureDate" class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
+                    <input id="returnDate" class="inp-style" type="date" name="">
                 </div>
             </div>
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="firstClass" class="inp-style inp-width" type="number"  value ="0" name="">
+                    <input id="firstClass" class="inp-style inp-width" type="number" value="0" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span class="btn-hover" onclick="unitValueChange(true,'firstClass')">+</span> <span class=f onclick="unitValueChange(false,'firstClass')">-</span></p>
+                    <p> <span class="btn-hover" onclick="unitValueChange(true,'firstClass')">+</span> <span class=f
+                            onclick="unitValueChange(false,'firstClass')">-</span></p>
                 </div>
             </div>
-            
+
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
                     <input id="economyClass" class="inp-style inp-width" type="number" value="0" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span class="btn-hover" onclick="unitValueChange(true,'economyClass')">+</span> <span class="btn-hover" onclick="unitValueChange(false,'economyClass')">-</span></p>
+                    <p> <span class="btn-hover" onclick="unitValueChange(true,'economyClass')">+</span> <span
+                            class="btn-hover" onclick="unitValueChange(false,'economyClass')">-</span></p>
                 </div>
             </div>
             <div class="calculations">
@@ -108,25 +112,59 @@
         </div>
     </main>
 
-</section>
-
-    <section id="paymentArea" class="payment">
+    <!--Payment Confirmation section-->
+    <section id="paymentArea" class="centerMe hideMe">
         <h1>Here goes your reservation</h1>
+        <div class="center-item">
+            <h4>Your Total cost: <span id="cost"> </span> </h3>
+                <h4>Travel start Date: <span id="startDate"> </span></h3>
+                    <h4>Travel Return Date: <span id="backDate"></span></h3>
+                        <h4>Your Departure place:<span id="depPlace"></span></h3>
+                            <h4>your destination place: <span id="destiantion"></span></h3>
+        </div>
+        <div class="user-info">
+            <div>
+                <h5>Your Name</h5>
+                <input class="inp-style" type="text" name="" id="name" placeholder="Please enter your name here">
+            </div>
+            <div>
+                <h5>Your Mail</h5>
+                <input type="email" name="" id="mail" placeholder="Enter your mail here">
+            </div>
+            <di>
+                <h5>Your phone</h5>
+                <input type="number" name="" id="phone" placeholder="enter your phone number">
+        </div>
 
+        </div>
+        <div class="double-button">
+            <button id="payNow" class="half-widthBtn"> pay Now </button>
+            <button id="goBack" class="half-widthBtn"> go back</button>
+        </div>
+
+    </section>
+    <!--final section -->
+    <section id="finalSection" class="centerMe">
+        <div class="center-item">
+            <h1>Thanks for your Kind Gesture. It is Demo!</h1>
+            <h3>You can go back to home Now</h3>
+            <button class="half-widthBtn" id="home">Go To Home</button>
+
+        </div>
     </section>
 
 
     <script>
-        function unitValueChange(unitKey,unitClass){
+        function unitValueChange(unitKey, unitClass) {
             console.log("clicked");
-        const classUnit = document.getElementById(unitClass).value
-        let classUnitNumber = parseInt(classUnit);
-        console.log(classUnitNumber);
+            const classUnit = document.getElementById(unitClass).value
+            let classUnitNumber = parseInt(classUnit);
+            console.log(classUnitNumber);
 
-            if(unitKey == true){
-                classUnitNumber += 1; 
+            if (unitKey == true) {
+                classUnitNumber += 1;
             }
-            else if(unitKey == false && classUnitNumber > 0){
+            else if (unitKey == false && classUnitNumber > 0) {
                 classUnitNumber -= 1;
             }
             document.getElementById(unitClass).value = classUnitNumber;
@@ -134,14 +172,14 @@
 
         }
 
-        function subTotal(){
+        function subTotal() {
             const firstClass = document.getElementById('firstClass').value
             let firstClassNumber = parseInt(firstClass);
-                firstClassNumber *= 150;
+            firstClassNumber *= 150;
             console.log(firstClassNumber);
             const economyClass = document.getElementById('economyClass').value
             let economyClassNumber = parseInt(economyClass);
-                economyClassNumber *= 100;
+            economyClassNumber *= 100;
             const total = firstClassNumber + economyClassNumber;
             const finalTotal = document.getElementById('total').innerText = total
 
@@ -152,15 +190,61 @@
             document.getElementById('totalWithTax').innerText = totalWithTax;
         }
 
-           const bookNowBtn = document.getElementById("bookNow");
-            bookNowBtn.addEventListener("click", function(){
+        const bookNowBtn = document.getElementById("bookNow");
+        bookNowBtn.addEventListener("click", function () {
             const reserveArea = document.getElementById("reserveArea");
             reserveArea.style.display = "none";
             const transactionArea = document.getElementById("paymentArea");
             transactionArea.style.display = "block";
+
+            //displaying the value
+            const departure = document.getElementById('starting').value;
+            console.log(departure);
+            document.getElementById('depPlace').innerText = " " + departure;
+
+            const destination = document.getElementById('landing').value;
+            document.getElementById('destiantion').innerText = " " + destination;
+
+            const cost = document.getElementById('totalWithTax').innerText;
+            document.getElementById('cost').innerText = " " + "$" + cost;
+
+            const departureDate = document.getElementById('departureDate').value;
+            document.getElementById('startDate').innerText = " " + departureDate;
+
+            const returnDate = document.getElementById('returnDate').value;
+            document.getElementById('backDate').innerText = " " + returnDate;
         })
+
+
+        //payment page js 
+
+        const goBackBtn = document.getElementById("goBack");
+        goBackBtn.addEventListener("click", function () {
+            const transactionArea = document.getElementById("paymentArea");
+            transactionArea.style.display = "none";
+            const reserveArea = document.getElementById("reserveArea");
+            reserveArea.style.display = "flex";
+        })
+
+        const payment = document.getElementById("payNow");
+        payment.addEventListener("click", function () {
+            const transactionArea = document.getElementById("paymentArea");
+            transactionArea.style.display = "none"
+            const finalPayment = document.getElementById("finalSection");
+            finalPayment.style.display = "block";
+        })
+
+        //final page 
+        const goToHome = document.getElementById("home");
+        goToHome.addEventListener("click", function () {
+            const finalSection = document.getElementById("finalSection");
+            finalSection.style.display = "none"
+            const reserveArea = document.getElementById("reserveArea");
+            reserveArea.style.display = "flex";
+        })
+
     </script>
-    
+
     <!--Thank You-->
 </body>
 
