@@ -125,7 +125,7 @@
         <div class="user-info">
             <div>
                 <h5>Your Name</h5>
-                <input class="inp-style" type="text" name="" id="name" placeholder="Please enter your name here">
+                <input id="userNameInput" class="inp-style" type="text" name="" id="name" placeholder="Please enter your name here">
             </div>
             <div>
                 <h5>Your Mail</h5>
@@ -146,7 +146,7 @@
     <!--final section -->
     <section id="finalSection" class="centerMe">
         <div class="center-item">
-            <h1>Thanks for your Kind Gesture. It is Demo!</h1>
+            <h1>Thanks for your Kind Gesture <span style="color: tomato;" id="userName"></span> . It is a Demo!</h1>
             <h3>You can go back to home Now</h3>
             <button class="half-widthBtn" id="home">Go To Home</button>
 
@@ -232,6 +232,8 @@
             transactionArea.style.display = "none"
             const finalPayment = document.getElementById("finalSection");
             finalPayment.style.display = "block";
+            const userNameShow = document.getElementById('userNameInput').value;
+            document.getElementById('userName').innerText = " " +userNameShow ;
         })
 
         //final page 
