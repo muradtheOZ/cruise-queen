@@ -168,6 +168,7 @@
                 classUnitNumber -= 1;
             }
             document.getElementById(unitClass).value = classUnitNumber;
+            
             subTotal();
 
         }
@@ -191,28 +192,41 @@
         }
 
         const bookNowBtn = document.getElementById("bookNow");
+        //Empty value check
+
         bookNowBtn.addEventListener("click", function () {
+            const firstClass = document.getElementById('firstClass').value
+        const economyClass = document.getElementById('economyClass').value
+        const departure = document.getElementById('starting').value;
+        const destination = document.getElementById('landing').value;
+        const departureDate = document.getElementById('departureDate').value;
+        const returnDate = document.getElementById('returnDate').value;
+        let finalTotal = document.getElementById('total').innerText
+        finalTotal = parseInt(finalTotal);
+        console.log(typeof departure);
+        console.log(finalTotal);
+
+        if(firstClass ===""||economyClass ===""||economyClass ===""||departure ===""||departureDate ===""||returnDate ==="" || finalTotal <= 0){
+            alert('please fill all the value')
+        }
+        else{
             const reserveArea = document.getElementById("reserveArea");
             reserveArea.style.display = "none";
             const transactionArea = document.getElementById("paymentArea");
             transactionArea.style.display = "block";
 
             //displaying the value
-            const departure = document.getElementById('starting').value;
-            console.log(departure);
+           
             document.getElementById('depPlace').innerText = " " + departure;
-
-            const destination = document.getElementById('landing').value;
             document.getElementById('destiantion').innerText = " " + destination;
-
             const cost = document.getElementById('totalWithTax').innerText;
             document.getElementById('cost').innerText = " " + "$" + cost;
-
-            const departureDate = document.getElementById('departureDate').value;
             document.getElementById('startDate').innerText = " " + departureDate;
-
-            const returnDate = document.getElementById('returnDate').value;
             document.getElementById('backDate').innerText = " " + returnDate;
+
+        }
+
+            
         })
 
 
