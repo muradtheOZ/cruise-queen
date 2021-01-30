@@ -129,11 +129,11 @@
             </div>
             <div>
                 <h5>Your Mail</h5>
-                <input type="email" name="" id="mail" placeholder="Enter your mail here">
+                <input  id="userMailInput" type="email" name="" id="mail" placeholder="Enter your mail here">
             </div>
             <di>
                 <h5>Your phone</h5>
-                <input type="number" name="" id="phone" placeholder="enter your phone number">
+                <input  id="userNumberInput" type="number" name="" id="phone" placeholder="enter your phone number">
         </div>
 
         </div>
@@ -242,12 +242,20 @@
 
         const payment = document.getElementById("payNow");
         payment.addEventListener("click", function () {
+            const userNameShow = document.getElementById('userNameInput').value;
+            const userMailShow = document.getElementById('userMailInput').value;
+            const userNumberShow = document.getElementById('userNumberInput').value;
+            if(userNameShow ===""||userMailShow ===""||userNumberShow ===""){
+            alert('please fill all the value')
+        }
+        else{
             const transactionArea = document.getElementById("paymentArea");
             transactionArea.style.display = "none"
             const finalPayment = document.getElementById("finalSection");
             finalPayment.style.display = "block";
-            const userNameShow = document.getElementById('userNameInput').value;
             document.getElementById('userName').innerText = " " +userNameShow ;
+        }
+
         })
 
         //final page 
