@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <section id="reserveArea">
+
     <!--Header and Menu Section-->
     <header class="container">
         <nav>
@@ -102,9 +104,17 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="bookNow" class="btn-style">Book Now</button>
         </div>
     </main>
+
+</section>
+
+    <section id="paymentArea" class="payment">
+        <h1>Here goes your reservation</h1>
+
+    </section>
+
 
     <script>
         function unitValueChange(unitKey,unitClass){
@@ -141,8 +151,16 @@
             const totalWithTax = finalTotal + tax;
             document.getElementById('totalWithTax').innerText = totalWithTax;
         }
-    </script>
 
+           const bookNowBtn = document.getElementById("bookNow");
+            bookNowBtn.addEventListener("click", function(){
+            const reserveArea = document.getElementById("reserveArea");
+            reserveArea.style.display = "none";
+            const transactionArea = document.getElementById("paymentArea");
+            transactionArea.style.display = "block";
+        })
+    </script>
+    
     <!--Thank You-->
 </body>
 
