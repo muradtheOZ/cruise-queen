@@ -61,7 +61,7 @@
                     <input id="firstClass" class="inp-style inp-width" type="number"  value ="0" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span class="btn" onclick="unitValueChange(true,'firstClass')">+</span> <span class="btn" onclick="unitValueChange(false,'firstClass')">-</span></p>
+                    <p> <span class="btn-hover" onclick="unitValueChange(true,'firstClass')">+</span> <span class=f onclick="unitValueChange(false,'firstClass')">-</span></p>
                 </div>
             </div>
             
@@ -71,7 +71,7 @@
                     <input id="economyClass" class="inp-style inp-width" type="number" value="0" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span class="btn" onclick="unitValueChange(true,'economyClass')">+</span> <span class="btn" onclick="unitValueChange(false,'economyClass')">-</span></p>
+                    <p> <span class="btn-hover" onclick="unitValueChange(true,'economyClass')">+</span> <span class="btn-hover" onclick="unitValueChange(false,'economyClass')">-</span></p>
                 </div>
             </div>
             <div class="calculations">
@@ -80,7 +80,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$ <span id="total">0</span></p>
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$ <span id="tax">0</span></p>
                     </div>
                 </div>
                 <hr>
@@ -98,7 +98,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$ <span id="totalWithTax">0</span></p>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,26 @@
                 classUnitNumber -= 1;
             }
             document.getElementById(unitClass).value = classUnitNumber;
+            subTotal();
 
+        }
+
+        function subTotal(){
+            const firstClass = document.getElementById('firstClass').value
+            let firstClassNumber = parseInt(firstClass);
+                firstClassNumber *= 150;
+            console.log(firstClassNumber);
+            const economyClass = document.getElementById('economyClass').value
+            let economyClassNumber = parseInt(economyClass);
+                economyClassNumber *= 100;
+            const total = firstClassNumber + economyClassNumber;
+            const finalTotal = document.getElementById('total').innerText = total
+
+            const tax = finalTotal * .10;
+            document.getElementById('tax').innerText = tax;
+
+            const totalWithTax = finalTotal + tax;
+            document.getElementById('totalWithTax').innerText = totalWithTax;
         }
     </script>
 
